@@ -1863,16 +1863,26 @@ a.footer-trust__item:hover {
   margin: 0 auto;
 }
 .industry-list__item {
-  padding: 1.25rem 1.4rem;
+  padding: 1.5rem 1.4rem;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
-  transition: border-color 220ms ease, transform 220ms ease;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
 }
 .industry-list__item:hover {
   border-color: rgba(37, 99, 235, 0.22);
-  transform: translateY(-1px);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
 }
+.industry-list__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 11px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.10) 0%, rgba(99, 102, 241, 0.10) 100%);
+  color: #2563eb;
+  margin-bottom: 0.9rem;
+}
+.industry-list__icon svg { width: 22px; height: 22px; }
 .industry-list__item h3 {
   font-size: 1rem;
   font-weight: 700;
@@ -1931,6 +1941,30 @@ a.footer-trust__item:hover {
   flex-wrap: wrap;
   gap: 0.625rem;
   justify-content: center;
+}
+/* Primary CTA was white-on-white (invisible) — give it a visible brand bg.
+   Secondary outline button gets a visible blue border on the light panel. */
+.industries-default__actions .btn-hero {
+  background: linear-gradient(135deg, #2e7de0 0%, #1a6bcc 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+}
+.industries-default__actions .btn-hero:hover {
+  background: linear-gradient(135deg, #1a6bcc 0%, #0d3f8f 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.36);
+}
+.industries-default__actions .btn-hero-white {
+  background: #ffffff !important;
+  color: #1a6bcc !important;
+  border: 1px solid rgba(37, 99, 235, 0.35) !important;
+}
+.industries-default__actions .btn-hero-white:hover {
+  background: rgba(37, 99, 235, 0.06) !important;
+  border-color: rgba(37, 99, 235, 0.55) !important;
+  color: #1a6bcc !important;
 }
 
 /* Multi-step form progress — sticky-pin to top on mobile so the user
@@ -3126,7 +3160,7 @@ body {
   position: relative;
   z-index: 1;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 15px auto;
   padding: 0 clamp(1rem, 4vw, 1.75rem);
 }
 .auction-flagship__crumb {
@@ -6658,10 +6692,28 @@ body {
 }
 .project-section.project-scope ul li b { color: #0f172a; font-weight: 700; }
 .project-section.project-scope ul li a { color: #1a6bcc; font-weight: 600; }
-/* CTA button sits inline, not stretched full-width */
+/* CTA button (Visit Website / Discuss…) — sits inline with a visible
+   brand-blue background (it was rendering white-on-light = invisible). */
 .project-section.project-scope .btn-hero {
   align-self: flex-start;
   margin-top: 1.5rem;
+  background: linear-gradient(135deg, #2e7de0 0%, #1a6bcc 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+}
+.project-section.project-scope .btn-hero:hover {
+  background: linear-gradient(135deg, #1a6bcc 0%, #0d3f8f 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.36);
+}
+
+/* Customer / "The Challenge" illustration — polished framed image */
+.customer .circle-illustration img {
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
 }
 /* Image → clean rounded card (drop the harsh full-bleed diagonal crop) */
 .project-section.project-scope .project-image,
@@ -6692,6 +6744,47 @@ body {
 .business__impact .client-testimonial p { color: rgba(255, 255, 255, 0.70) !important; }
 .business__impact .client-testimonial p:first-child { color: #7cb6ff !important; }
 .business__impact .client-testimonial blockquote { color: #ffffff !important; }
+
+/* ============================================================
+   "Ready to Hire" CTA (.web__wrapper) — site-wide
+   — replace the cartoon programmer.png with a clean branded
+     panel + code icon, and make the white-on-white CTA button
+     background visible. Applies to every page using .web__wrapper.
+   ============================================================ */
+.web__wrapper .img_2 {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16 18 22 12 16 6'/%3E%3Cpolyline points='8 6 2 12 8 18'/%3E%3C/svg%3E") no-repeat center / 120px,
+    radial-gradient(circle at 78% 22%, rgba(124, 182, 255, 0.30) 0%, transparent 45%),
+    linear-gradient(135deg, #0d3f8f 0%, #1a6bcc 55%, #2e7de0 100%) !important;
+  position: relative;
+}
+/* subtle decorative ring behind the icon */
+.web__wrapper .img_2::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 210px; height: 210px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Make the Schedule a Call / CTA button background clearly visible
+   (was rendering white-on-white). */
+.web__wrapper .text .btn-hero {
+  background: linear-gradient(135deg, #2e7de0 0%, #1a6bcc 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+  padding: 0.85rem 1.9rem;
+}
+.web__wrapper .text .btn-hero:hover {
+  background: linear-gradient(135deg, #1a6bcc 0%, #0d3f8f 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.36);
+}
 
 
 
