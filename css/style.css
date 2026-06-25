@@ -1368,8 +1368,7 @@ transform: translateY(-2px);
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   flex-wrap: wrap;
   
 }
