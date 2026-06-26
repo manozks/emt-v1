@@ -6786,6 +6786,114 @@ body {
   box-shadow: 0 10px 26px rgba(37, 99, 235, 0.36);
 }
 
+/* ============================================================
+   About → "The engineers who ship the code" — team showcase
+   on a brand-blue gradient with photos + overlapping name cards.
+   ============================================================ */
+.eng-showcase {
+  position: relative;
+  margin-top: 3.5rem;
+  border-radius: 26px;
+  padding: clamp(2.25rem, 4vw, 3.5rem) clamp(1.25rem, 3vw, 3rem) clamp(2.5rem, 4vw, 3.5rem);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 55% at 85% 0%, rgba(46, 125, 224, 0.40) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 0% 100%, rgba(99, 102, 241, 0.25) 0%, transparent 55%),
+    linear-gradient(160deg, #0d1b2e 0%, #0d3f8f 55%, #1a6bcc 100%);
+}
+.eng-showcase__head {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+.eng-showcase__eyebrow {
+  color: #7cb6ff !important;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+.eng-showcase__head .eng-showcase__title {
+  color: #ffffff !important;
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem) !important;
+  font-weight: 800; letter-spacing: -0.02em;
+  margin: 0 0 0.7rem !important;
+}
+.eng-showcase__lead {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.02rem; line-height: 1.6; margin: 0;
+}
+
+.eng-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  align-items: end;
+}
+.eng-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eng-member__photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%);
+  box-shadow: 0 22px 45px rgba(2, 8, 23, 0.40), inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.eng-member__photo::before {
+  content: attr(data-initials);
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800;
+  color: rgba(255, 255, 255, 0.85); letter-spacing: -0.03em;
+}
+.eng-member__photo img {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.eng-member:hover .eng-member__photo {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 55px rgba(2, 8, 23, 0.50), inset 0 0 0 1px rgba(124, 182, 255, 0.40);
+}
+.eng-member__card {
+  position: relative; z-index: 2;
+  width: 90%;
+  margin-top: -2.4rem;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.95rem 1.15rem;
+  box-shadow: 0 18px 38px rgba(2, 8, 23, 0.28);
+  text-align: left;
+}
+.eng-member__name {
+  font-size: 1rem !important; font-weight: 700 !important;
+  color: #0f172a !important; margin: 0 !important; line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.eng-member__role {
+  font-size: 0.85rem !important; font-weight: 500 !important;
+  color: #2563eb !important; margin: 0.2rem 0 0 !important;
+}
+
+@media (max-width: 900px) {
+  .eng-row { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+}
+@media (max-width: 480px) {
+  .eng-row { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .eng-member__card { width: 94%; padding: 0.75rem 0.85rem; }
+  .eng-member__name { font-size: 0.9rem !important; }
+  .eng-member__role { font-size: 0.78rem !important; }
+}
+
 
 
 
